@@ -1,0 +1,6 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+  background-color:rgb(6, 2, 24);
+  font-family: 'Bruno Ace SC', cursive;
+}

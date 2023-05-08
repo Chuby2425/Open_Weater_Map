@@ -1,0 +1,97 @@
+<div class="container-fluid" id="principal">
+  <div class="row">
+    <div class="col-sm-6 offset-md-3 text-center " id="">
+      <div clas="imput-group mt-5 " id="serch">
+        <div class="imput-group-append text-center" id="">
+          <div class="search-bar">
+            <input class="form-Control" type="text" #userimput placeholder="Enter City Name" id="">
+            <button type="submit" (click)="getCity(userimput.value)">Serch</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 text-center" id=title>
+        <h5>Current Weather</h5>
+      </div>
+      </div>
+
+<section class="vh-100" style="background-color:rgb(6, 2, 24)">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 col-lg-6 col-xl-4">
+
+
+        <div class="card" style="border-radius: 10px;">
+          <div class="bg-image ripple" data-mdb-ripple-color="light"
+            style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw2.webp" class="w-100" />
+            <div class="mask" style="background-color: rgba(0,0,0,.45)">
+              <div class="d-flex justify-content-between p-4">
+                <a href="#!" class="text-white"><i class="fas fa-chevron-left fa-lg"></i></a>
+                <a href="#!" class="text-white"><i class="fas fa-cog fa-lg"></i></a>
+              </div>
+
+              <div class="text-center text-white">
+                <p class="h3 mb-4">{{weather.weather[0].description}}</p>
+                <p class="h5 mb-4">{{ weather.name }}, {{weather.sys.country}}</p>
+                <p class="display-2"><strong>{{ weather.main.temp}}°F</strong> </p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-4 text-center">
+            <a href="#!" class="text-body"><i class="fas fa-chevron-up fa-lg mb-4"></i></a>
+
+            <div class="d-flex justify-content-between mb-3">
+              <p class="h5 fw-normal">Humidity</p>
+              <p class="h5 fw-normal"><i class="fas fa-sun pe-2"></i> {{ weather.main.humidity}}%</p>
+            </div>
+
+            <div class="d-flex justify-content-between" style="color: rgb(6, 2, 24)aa;">
+              <p class="h5 fw-normal">Pressure</p>
+              <p class="h5 fw-normal"><i class="fas fa-cloud pe-2"></i> {{ weather.main.pressure}} hpa</p>
+            </div>
+
+            <div class="d-flex justify-content-between" style="color: rgb(6, 2, 24)aa;">
+              <p class="h5 fw-normal">Sunries</p>
+              <p class="h5 fw-normal"><i class="fas fa-cloud pe-2"></i> {{ weather.sys.sunrise * 1000 | date:'H:mm'}}</p>
+            </div>
+
+            <div class="d-flex justify-content-between" style="color: rgb(6, 2, 24)aa;">
+              <p class="h5 fw-normal">Sunset</p>
+              <p class="h5 fw-normal"><i class="fas fa-cloud pe-2"></i> {{ weather.sys.sunset * 1000 | date: 'H:mm'}}</p>
+            </div>
+
+            <div class="d-flex justify-content-between" style="color: rgb(6, 2, 24)aa;">
+              <p class="h5 fw-normal">Cords</p>
+              <p class="h5 fw-normal"><i class="fas fa-cloud pe-2"></i> [{{ weather.coord.lon}}, {{weather.coord.lat}}]</p>
+            </div>
+
+            <div class="d-flex justify-content-between" style="color: rgb(6, 2, 24)aa;">
+              <p class="h5 fw-normal">visibility</p>
+              <p class="h5 fw-normal"><i class="fas fa-cloud pe-2"></i> {{ weather.visibility}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="col-md-6" id="card-pronostic" >
+  <h1 style="text-align: center;">Pronostic weather for {{pronostic.city.name}}</h1>
+  <hr>
+  <div class="row d-flex">
+    <div class="col-md-4" *ngFor="let forecast of pronostic.list">
+      <div class="card-pronostic mt-4 card-lg">
+        <div class="card-body-pronostic">
+          <img [src]="'http://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png'" alt="Weather Icon"
+            class="img">
+          <p class="card-text-pronostic">{{ forecast.dt_txt }}</p>
+          <p class="card-text-pronostic">{{ forecast.temp }}</p>
+          <p class="card-text-pronostic">{{ forecast.weather[0].description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
